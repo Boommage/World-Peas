@@ -36,6 +36,18 @@ export default function Layout({children, cartSize}: LayoutProps) {
         </Offcanvas>
     )
 
+    const footer = (
+        <footer className="p-3">
+            <p><span className="fst-italic">World Peas</span> originated from {" "} 
+                <a href="https://www.figma.com/">Figma.com</a>
+                <br/>
+                Programmed by <a href="https://github.com/Boommage">DJ Brown</a>
+                {" "}using <a href="https://react-bootstrap.netlify.app/">React Bootstrap</a>
+                <br/>Checkout the project on <a href="https://github.com/Boommage">Github</a>!
+            </p>
+        </footer>
+    )
+
     return (
         <>
             {header}
@@ -43,6 +55,8 @@ export default function Layout({children, cartSize}: LayoutProps) {
             <main>
                 {children}
             </main>
+            <div style={{ height: "250px" }}/>
+            {footer}
         </>
     )
 }

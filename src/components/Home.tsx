@@ -68,7 +68,6 @@ export default function Home() {
                     </Stack>
                 </Col>
             </Row>
-
             <div className="my-5 py-5"/>
         </Container>
     )
