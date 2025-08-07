@@ -1,0 +1,58 @@
+import { Card, Collapse, Dropdown, Stack } from "react-bootstrap";
+import { lbsOptions, type CartItem } from "../utils/Food";
+import { useState } from "react";
+import "../utils/WP.css"
+
+
+interface CartCardProps {
+    cartData: CartItem
+    changeLbs: (target: CartItem, newLbs: number) => void
+    removeItem: (target: CartItem) => void
+}
+
+export default function CartCard({cartData, changeLbs, removeItem}: CartCardProps) {
+
+    const [open, setOpen] = useState(false)
+    const [calculatedCost, setCalculatedCost] = useState(-1)
+
+    function reCalculateCost(target: CartItem, lbs: number) {
+        changeLbs(target, lbs)
+        setCalculatedCost(parseFloat((Math.round((target.food.cost * lbs) * 100) / 100).toFixed(2)))
+    }
+
+    const initialCalcCost = parseFloat((Math.round((cartData.food.cost * cartData.lbs) * 100) / 100).toFixed(2))
+
+    //const calculatedCost = parseFloat((Math.round((cartData.food.cost * cartData.lbs) * 100) / 100).toFixed(2))
+    return (
+        <Card className="d-flex flex-row align-items-center">
+            <Card.Img src={cartData.food.srcImg} className="w-25"/>
+            <Card.Body>
+                <Card.Title className="fw-bold">
+                    <div className="d-flex justify-content-between">
+                        {cartData.food.name}
+                        <span>${(calculatedCost === -1 ? initialCalcCost : calculatedCost)}</span>
+                    </div>
+                </Card.Title>
+                <Card.Subtitle className="fs-5 wp-color">${cartData.food.cost} / lbs</Card.Subtitle>
+                <Stack direction="horizontal" gap={1} className="mt-3 ms-2">
+                    {cartData.lbs} {(cartData.lbs === 1 ? "lb" : "lbs")}
+
+                    <i className="fa-solid fa-pencil text-body-secondary ms-5 mt-1" style={{ cursor: "pointer" }}
+                    onClick={() => setOpen(!open)}/>
+                    <Collapse in={open}>
+                        <Dropdown>
+                            <Dropdown.Toggle as={"span"} style={{ cursor: "pointer" }}/>
+                                
+                            <Dropdown.Menu>
+                                {lbsOptions.map((lbs, index) => (
+                                    <Dropdown.Item key={index} onClick={() => reCalculateCost(cartData, lbs)}>{lbs}</Dropdown.Item>
+                                ))}
+                                <Dropdown.Item onClick={() => removeItem(cartData)}>Remove</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>     
+                    </Collapse>         
+                </Stack>
+            </Card.Body>
+        </Card>
+    )
+}

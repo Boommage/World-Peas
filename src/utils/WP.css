@@ -1,0 +1,23 @@
+.custom-header {
+    height: 75px !important; /* Or any fixed height you want */
+    border: none !important;
+    max-height: 100px;
+}
+.world-peas-logo {
+  font-family: 'Newsreader-italic', serif; /* Font */
+  color: #426B1F;                  /* Text color */
+}
+
+.world-peas-font {
+    font-family: 'Newsreader-italic', serif;
+    font-size: 4rem;
+}
+
+.wp-btn {
+    background-color: #426B1F;
+    border-color: #426B1F;
+}
+
+.wp-color {
+    color: #426B1F;
+}

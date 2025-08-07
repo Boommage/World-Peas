@@ -1,0 +1,45 @@
+{foodList.map((food, index) => (
+                    <Col key={index}>
+                        <Card
+                            className="ms-4 mb-3"
+                            style={{ cursor: "pointer" }}
+                            onClick={() => handleCardClick(index)}>
+
+                            {/* Sliding Prompt */}
+                            <Card.Img variant="top" src={food.srcImg} />
+                            <Card.Body>
+                                <Card.Title className="fw-semibold">{food.name}</Card.Title>
+                                <Card.Subtitle>${food.cost} / lb</Card.Subtitle>
+                                <Card.Text className="mt-3 text-secondary">{food.desc}</Card.Text>
+                            </Card.Body>
+                            <Collapse in={selectedIndex === index}>
+                                <div>
+                                    <Form className="p-3">
+                                        <Form.Group>
+                                            <Form.Label>Enter pounds to add:</Form.Label>
+                                            <Form.Control
+                                                type="number"
+                                                value={pounds}
+                                                min={0}
+                                                step={0.1}
+                                                placeholder="e.g., 2.5"
+                                                onClick={(e) => e.stopPropagation()}
+                                                onChange={(e) => setPounds(e.target.value)}
+                                            />
+                                        </Form.Group>
+                                        <Button
+                                            className="mt-2"
+                                            variant="primary"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleAddToCart(food.name);
+                                            }}
+                                        >
+                                            Add to Cart
+                                        </Button>
+                                    </Form>
+                                </div>
+                            </Collapse>
+                        </Card>
+                    </Col>
+                ))}
