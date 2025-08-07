@@ -43,8 +43,10 @@
   overflow-x: hidden; 
 }
 .offcanvas-body {
-  background-color: white;
   overflow-x: hidden;
+}
+.navbar {
+  background-color: white;
 }
 .navbar .nav-link {
   white-space: nowrap;
