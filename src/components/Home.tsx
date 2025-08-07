@@ -1,11 +1,8 @@
 import { Button, Col, Container, Row, Image, Figure, Stack} from "react-bootstrap";
 import "../utils/WP.css"
+import { Link } from "react-router-dom";
 
-interface HomeProps {
-    setTab: (tab: string) => void
-}
-
-export default function Home({setTab}: HomeProps) {
+export default function Home() {
     return (
         <Container fluid>
             <h1 className="fs-1 text-center mt-5 pt-5 pb-3 world-peas-font">
@@ -16,11 +13,10 @@ export default function Home({setTab}: HomeProps) {
                 <br/>
                 organically grown food.
             </h1>
-            <Button size={"lg"}variant={"success"} 
-            className="position-absolute start-50 translate-middle mt-5 wp-btn"
-            onClick={() => setTab("shop")}>
+            <Link to={"/shop"}><Button size={"lg"}variant={"success"} 
+            className="position-absolute start-50 translate-middle mt-5 wp-btn">
                 Browse our shop
-                </Button>
+                </Button></Link>
 
             <div className="my-5 py-5"/>
             <div className="my-5 py-5"/>

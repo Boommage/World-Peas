@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { Button, Col, Container, Row, Stack, Toast, ToastContainer } from "react-bootstrap";
-import { foodList, type CartItem } from "../utils/Food";
+import { type CartContextType, foodList } from "../utils/Food";
 import ShopCard from "./ShopCard";
 import "../utils/WP.css"
+import { useOutletContext } from "react-router-dom";
 
+export default function Shop() {
 
-interface ShopProps {
-    setCart: (item: CartItem) => void
-    cartContent: CartItem[]
-    changeLbs: (target: CartItem, newLbs: number) => void
-}
-
-export default function Shop({setCart, cartContent, changeLbs}: ShopProps) {
+    const { cart, setCartHelper, changeLbs } = useOutletContext<CartContextType>();
 
     const [toastArr, setToastArr] = useState<String[]>([])
+
+    const currentDate = new Date("2025-08-06T00:00:00-05:00");
+    const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+    ];
 
     function addToCart(amount: number, name: string) {
         let plural = " lbs"
@@ -30,7 +32,7 @@ export default function Shop({setCart, cartContent, changeLbs}: ShopProps) {
         if(!foodItem) {
             return
         }
-        const cartItem = cartContent.find(item => item.food.name === name)
+        const cartItem = cart.find(item => item.food.name === name)
         if(cartItem && cartItem.lbs === amount) {
             return
         }
@@ -40,7 +42,7 @@ export default function Shop({setCart, cartContent, changeLbs}: ShopProps) {
             setToastArr(prev => [...prev,message])
             return
         }
-        setCart({
+        setCartHelper({
                 food: foodItem,
                 lbs: amount
         })
@@ -55,7 +57,7 @@ export default function Shop({setCart, cartContent, changeLbs}: ShopProps) {
                 <Col xs={9}>
                     <Stack direction="horizontal" gap={3}>
                         <h1 className="text-start world-peas-font">Produce</h1>
-                        <p className="mt-4"><span className="fw-medium">Fresh</span> — August 21, 2023</p>
+                        <p className="mt-4"><span className="fw-medium">Fresh</span> — {monthNames[currentDate.getMonth()]} {currentDate.getDay()+","} {currentDate.getFullYear()}</p>
                     </Stack>
                 </Col>
                 <Col>

@@ -1,24 +1,23 @@
 import type { ReactNode } from "react"
 import { Button, Col, Container, Offcanvas, Row, Stack } from "react-bootstrap"
 import "../utils/WP.css"
+import { Link } from "react-router-dom"
 
 interface LayoutProps {
     children: ReactNode
     cartSize: number
-    changeTab: (tab: string) => void
-
 }
 
-export default function Layout({children, changeTab, cartSize}: LayoutProps) {
+export default function Layout({children, cartSize}: LayoutProps) {
 
 
     const headerButtons = (
         <Stack direction="horizontal" gap={4} >
-            <Button variant="light" onClick={() => changeTab("shop")}>Shop</Button>
+            <Link to="/shop"><Button variant="light">Shop</Button></Link>
             <Button variant="light">Newstand</Button>
-            <Button variant="light" onClick={() => changeTab("")}>Who we are</Button>
+            <Link to="/"><Button variant="light">Who we are</Button></Link>
             <Button variant="light">My Profile</Button>
-            <Button variant="success" onClick={() => changeTab("cart")} className="wp-btn">Basket ({cartSize})</Button>
+            <Link to="/cart"><Button variant="success" className="wp-btn">Basket ({cartSize})</Button></Link>
         </Stack>
     )
 

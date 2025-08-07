@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react"
-import Home from "./components/Home"
 import Layout from "./components/Layout"
-import Shop from "./components/Shop"
 import { type CartItem } from "./utils/Food"
-import Cart from "./components/Cart"
+import { Outlet } from "react-router-dom"
 
 function App() {
 
-  const [tab, setTab] = useState("")
   const [cart, setCart] = useState<CartItem[]>(() => {
     const userCart = localStorage.getItem("user")
     return userCart ? JSON.parse(userCart) : []
@@ -38,26 +35,10 @@ function App() {
     )
   }
 
-  function changeTab(x: string) {
-    setTab(x)
-  }
-  
   return (
-    <>
-      <Layout changeTab={changeTab} cartSize={cart.length}>
-        {(!tab && <Home setTab={setTab}/>)}
-        {(tab === "shop" && <Shop 
-          setCart={setCartHelper} 
-          cartContent={cart} 
-          changeLbs={changeLbs}
-        />)}
-        {(tab === "cart" && <Cart 
-          cartContent={cart} 
-          changeLbs={changeLbs}
-          removeItem={removeItem}
-        />)}
+      <Layout cartSize={cart.length}>
+        <Outlet context={{ cart, setCartHelper, changeLbs, removeItem }}/>
       </Layout>
-    </>
   )
 }
 

@@ -1,16 +1,16 @@
 import { Card, Collapse, Dropdown, Stack } from "react-bootstrap";
-import { lbsOptions, type CartItem } from "../utils/Food";
+import { lbsOptions, type CartContextType, type CartItem } from "../utils/Food";
 import { useState } from "react";
 import "../utils/WP.css"
-
+import { useOutletContext } from "react-router-dom";
 
 interface CartCardProps {
     cartData: CartItem
-    changeLbs: (target: CartItem, newLbs: number) => void
-    removeItem: (target: CartItem) => void
 }
 
-export default function CartCard({cartData, changeLbs, removeItem}: CartCardProps) {
+export default function CartCard({cartData}: CartCardProps) {
+
+    const { changeLbs, removeItem } = useOutletContext<CartContextType>();
 
     const [open, setOpen] = useState(false)
     const [calculatedCost, setCalculatedCost] = useState(-1)
@@ -22,7 +22,6 @@ export default function CartCard({cartData, changeLbs, removeItem}: CartCardProp
 
     const initialCalcCost = parseFloat((Math.round((cartData.food.cost * cartData.lbs) * 100) / 100).toFixed(2))
 
-    //const calculatedCost = parseFloat((Math.round((cartData.food.cost * cartData.lbs) * 100) / 100).toFixed(2))
     return (
         <Card className="d-flex flex-row align-items-center">
             <Card.Img src={cartData.food.srcImg} className="w-25"/>

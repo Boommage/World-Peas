@@ -50,7 +50,7 @@ export default function ShopCard({food, index, addToCart}: ShopCardProps) {
                                 <h5 className="mt-2 fst-italic">lbs</h5>
                             </Col>
                             <Col className="ms-4 ps-4">
-                                <Button variant={"success"} className="ms-4"
+                                <Button variant={"success"} className="ms-4 wp-btn"
                                 onClick={() => addToCart(lbs,food.name)}>
                                     Add to Cart
                                 </Button>

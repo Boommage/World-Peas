@@ -44,3 +44,10 @@ export interface CartItem {
 export function round(val: number) {
     return parseFloat((Math.round((val) * 100) / 100).toFixed(2)) 
 }
+
+export type CartContextType = {
+  cart: CartItem[];
+  setCartHelper: (item: CartItem) => void;
+  changeLbs: (target: CartItem, newLbs: number) => void;
+  removeItem: (target: CartItem) => void;
+};

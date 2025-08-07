@@ -43,3 +43,16 @@
                         </Card>
                     </Col>
                 ))}
+
+
+        {(!tab && <Home setTab={setTab}/>)}
+        {(tab === "shop" && <Shop 
+          setCart={setCartHelper} 
+          cartContent={cart} 
+          changeLbs={changeLbs}
+        />)}
+        {(tab === "cart" && <Cart 
+          cartContent={cart} 
+          changeLbs={changeLbs}
+          removeItem={removeItem}
+        />)}
