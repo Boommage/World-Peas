@@ -43,7 +43,7 @@
   overflow-x: hidden; 
 }
 .offcanvas-body {
-  color: aliceblue;
+  background-color: white;
   overflow-x: hidden;
 }
 .navbar .nav-link {
