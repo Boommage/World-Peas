@@ -23,11 +23,11 @@ export default function Home() {
 
             <Row className="justify-content-center">
                 <Col xs="auto">
-                    <Image src="WorldPeas Imgs\jonathan-kemper-1HHrdIoLFpU-unsplash 1.png" />
+                    <Image src="images/jonathan-kemper-1HHrdIoLFpU-unsplash 1.png" />
                 </Col>
                 <Col xs="auto" className="ms-4">
                     <Figure className="mt-5 pt-5">
-                        <Figure.Image src="WorldPeas Imgs/Stocksy_txp226f62b2aNe300_Medium_4582193 1.png"/>
+                        <Figure.Image src="images/Stocksy_txp226f62b2aNe300_Medium_4582193 1.png"/>
                         <Figure.Caption>
                             <span className="fw-medium text-dark">Central California </span> 
                             — The person who grew these was located in Central California 
