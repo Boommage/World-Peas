@@ -1,5 +1,5 @@
 import type { ReactNode } from "react"
-import { Button, Col, Container, Offcanvas, Row, Stack } from "react-bootstrap"
+import { Button, Container, Offcanvas, Stack } from "react-bootstrap"
 import "../utils/WP.css"
 import { Link, useLocation } from "react-router-dom"
 
@@ -24,8 +24,8 @@ export default function Layout({children, cartSize}: LayoutProps) {
     const header = (
         <Offcanvas show placement="top" backdrop={false} scroll={true} className="custom-header">
             <Container fluid className="mt-3">
-                <div className="d-flex justify-content-between">
-                    <h2 className="world-peas-logo fw-medium" >World Peas</h2>
+                <div className="d-flex justify-content-between m-3">
+                    <h2 className="world-peas-logo fw-medium m-4" >World Peas</h2>
                     {headerButtons}
                 </div>
             </Container>
