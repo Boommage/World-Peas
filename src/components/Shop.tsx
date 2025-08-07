@@ -61,7 +61,7 @@ export default function Shop() {
                     </Stack>
                 </Col>
                 <Col>
-                    <Stack direction="horizontal" gap={3} className="mt-2 ms-5 ps-4" >
+                    <Stack direction="horizontal" gap={3} className="mt-4 ms-auto" >
                         <Button size="sm" className="fw-semibold wp-btn" variant="success">Default</Button>
                         <Button size="sm" className="fw-semibold" variant="light">A-Z</Button>
                         <Button size="sm" className="fw-semibold" variant="light">List View</Button>

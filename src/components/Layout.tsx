@@ -24,14 +24,10 @@ export default function Layout({children, cartSize}: LayoutProps) {
     const header = (
         <Offcanvas show placement="top" backdrop={false} scroll={true} className="custom-header">
             <Container fluid className="mt-3">
-                <Row>
-                    <Col className="ms-5">
-                        <h2 className="world-peas-logo fw-medium" >World Peas</h2>
-                    </Col>
-                    <Col className="text-end" xxl={"auto"} xl={"auto"}>
-                        {headerButtons}
-                    </Col>
-                </Row>
+                <div className="d-flex justify-content-between">
+                    <h2 className="world-peas-logo fw-medium" >World Peas</h2>
+                    {headerButtons}
+                </div>
             </Container>
         </Offcanvas>
     )

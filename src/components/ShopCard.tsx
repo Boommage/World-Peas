@@ -1,4 +1,4 @@
-import { Button, Card, Col, Collapse, Form, Row } from "react-bootstrap";
+import { Button, Card, Collapse, Form } from "react-bootstrap";
 import { lbsOptions, type FoodItem } from "../utils/Food";
 import { useState } from "react";
 import "../utils/WP.css"
@@ -38,24 +38,20 @@ export default function ShopCard({food, index, addToCart}: ShopCardProps) {
                 <Form className="border-top">
                     <Form.Group className="m-3">
                         <Form.Label>Enter amount: </Form.Label>
-                        <Row>
-                            <Col xs={3} >
-                                <Form.Select onChange={(event) => setlbs(parseFloat(event.target.value))}>
-                                    {lbsOptions.map((option, index) => (
+                            <div className="d-flex justify-content-between">
+                                <div className="d-flex">
+                                    <Form.Select onChange={(event) => setlbs(parseFloat(event.target.value))}>
+                                        {lbsOptions.map((option, index) => (
                                         <option key={index}>{option}</option>
-                                    ))}
-                                </Form.Select>
-                            </Col>
-                            <Col xs={3}>
-                                <h5 className="mt-2 fst-italic">lbs</h5>
-                            </Col>
-                            <Col className="ms-4 ps-4">
-                                <Button variant={"success"} className="ms-4 wp-btn"
+                                        ))}
+                                    </Form.Select>
+                                    <h5 className="mt-2 ms-2 fst-italic">lbs</h5>
+                                </div>
+                                <Button variant={"success"} className="wp-btn"
                                 onClick={() => addToCart(lbs,food.name)}>
                                     Add to Cart
                                 </Button>
-                            </Col>
-                        </Row>
+                            </div>
                     </Form.Group>
                 </Form>
             </Collapse>
