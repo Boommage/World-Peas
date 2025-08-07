@@ -21,21 +21,17 @@ export default function Home() {
             <div className="my-5 py-5"/>
             <div className="my-5 py-5"/>
 
-            <Row className="justify-content-center">
-                <Col xs="auto">
-                    <Image src="images/jonathan-kemper-1HHrdIoLFpU-unsplash 1.webp" />
-                </Col>
-                <Col xs="auto" className="ms-4">
-                    <Figure className="mt-5 pt-5">
-                        <Figure.Image src="images/Stocksy_txp226f62b2aNe300_Medium_4582193 1.webp"/>
-                        <Figure.Caption>
-                            <span className="fw-medium text-dark">Central California </span> 
-                            — The person who grew these was located in Central California 
-                            and, er, hopefully very well compensated.
-                        </Figure.Caption>
-                    </Figure>
-                </Col>
-            </Row>
+            <div className="d-flex justify-content-center flex-wrap"> 
+                <Image className={"me-5"} src="images/jonathan-kemper-1HHrdIoLFpU-unsplash 1.webp" />
+                <Figure className="mt-5 pt-5">
+                    <Figure.Image src="images/Stocksy_txp226f62b2aNe300_Medium_4582193 1.webp"/>
+                    <Figure.Caption>
+                        <span className="fw-medium text-dark">Central California </span> 
+                        — The person who grew these was located in Central California 
+                        and, er, hopefully very well compensated.
+                    </Figure.Caption>
+                </Figure>
+            </div>
 
             <div className="my-5 py-4"/>
 

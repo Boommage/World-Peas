@@ -6,7 +6,7 @@ export interface FoodItem {
     srcImg: string
 }
 
-export const lbsOptions: number[] = [ 0,0.2,0.5,0.7,1,1.5,2,2.5,3,4,5,10]
+export const lbsOptions: number[] = [ 0.3,0.6,1,1.5,2,2.5,3,4,5,10]
 
 
 export const foodList: FoodItem[] = [

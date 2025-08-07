@@ -1,5 +1,5 @@
-import type { ReactNode } from "react"
-import { Button, Container, Offcanvas, Stack } from "react-bootstrap"
+import { useState, type ReactNode } from "react"
+import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap"
 import "../utils/WP.css"
 import { Link, useLocation } from "react-router-dom"
 
@@ -10,26 +10,34 @@ interface LayoutProps {
 
 export default function Layout({children, cartSize}: LayoutProps) {
 
+    const [showCanvas, setShowCanvas] = useState(false)
+
 
     const headerButtons = (
-        <Stack direction="horizontal" gap={4} >
-            <Link to="/shop"><Button variant="light">Shop</Button></Link>
-            <Button variant="light">Newstand</Button>
-            <Link to="/"><Button variant="light">Who we are</Button></Link>
-            <Button variant="light">My Profile</Button>
-            <Link to="/cart"><Button variant="success" className="wp-btn">Basket ({cartSize})</Button></Link>
-        </Stack>
+            <Nav className="me-3 justify-content-end flex-grow-1" variant="underline" onClick={() => setShowCanvas(false)}>
+                <Nav.Link as={Link} to="/shop" className={"mx-2 fst-normal"} active={location.pathname === "/shop"}>Shop</Nav.Link>
+                <Nav.Link className="mx-2" disabled>Newstand</Nav.Link>
+                <Nav.Link as={Link} to="/" className="mx-2" active={location.pathname === "/"}>Who we are</Nav.Link>
+                <Nav.Link className="mx-2" disabled>My Profile</Nav.Link>
+                <Nav.Link as={Link} to="/cart" className="basket-btn">Basket ({cartSize})</Nav.Link>
+            </Nav>
     )
 
     const header = (
-        <Offcanvas show placement="top" backdrop={false} scroll={true} className="custom-header">
-            <Container fluid className="mt-3">
-                <div className="d-flex justify-content-between m-3">
-                    <h2 className="world-peas-logo fw-medium m-4" >World Peas</h2>
-                    {headerButtons}
-                </div>
+        <Navbar className="custom-header" expand={"lg"} bg="light" fixed="top">
+            <Container fluid className="mt-2">
+                <Navbar.Brand><h2 className="world-peas-logo fw-medium m-4" >World Peas</h2></Navbar.Brand>
+                <Navbar.Toggle onClick={() => setShowCanvas(true)}/>
+                <Navbar.Offcanvas placement="top" show={showCanvas} onHide={() => setShowCanvas(false)}>
+                    <Offcanvas.Header><h2 className="world-peas-logo fw-medium" >World Peas</h2></Offcanvas.Header>
+                    <Offcanvas.Body>
+                        {headerButtons}
+                    </Offcanvas.Body>
+                </Navbar.Offcanvas>
             </Container>
-        </Offcanvas>
+        </Navbar>
+        
+
     )
 
     const footer = (

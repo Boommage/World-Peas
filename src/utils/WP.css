@@ -1,5 +1,5 @@
 .custom-header {
-    height: 75px !important; /* Or any fixed height you want */
+    height: 120px !important; /* Or any fixed height you want */
     border: none !important;
     max-height: 100px;
 }
@@ -21,3 +21,55 @@
 .wp-color {
     color: #426B1F;
 }
+
+.wp-option {
+    caret-color: #426B1F;
+}
+
+.basket-btn {
+    background-color: #426B1F;
+    border-radius: 1cap;
+    color: aliceblue !important;
+    width: 105px;
+    text-align: center;
+    position: relative;
+}
+
+.nav-link.active {
+  font-weight: normal !important;
+}
+
+ body, html {
+  overflow-x: hidden; 
+}
+.offcanvas-body {
+  overflow-x: hidden;
+}
+.navbar .nav-link {
+  white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+    .offcanvas {
+    min-height: 400px; 
+    }
+}
+/* Only apply on small screens */
+@media (max-width: 576px) {
+  .mobile-bottom-toast {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0; /* Removes default margin */
+    padding: 0.5rem;
+    z-index: 9999; /* Keep it above content */
+  }
+
+  .mobile-bottom-toast .toast {
+    width: 100%; /* Make each toast span full width */
+    border-radius: 0; /* Optional: flat edge for bottom bar look */
+  }
+}
+

@@ -21,7 +21,7 @@ export default function ShopCard({food, index, addToCart}: ShopCardProps) {
         setCardClicked(index)
     }
 
-    const [lbs, setlbs] = useState(0)
+    const [lbs, setlbs] = useState(1)
     const [cardClicked, setCardClicked] = useState(-1)
 
     return (
@@ -40,12 +40,12 @@ export default function ShopCard({food, index, addToCart}: ShopCardProps) {
                         <Form.Label>Enter amount: </Form.Label>
                             <div className="d-flex justify-content-between">
                                 <div className="d-flex">
-                                    <Form.Select onChange={(event) => setlbs(parseFloat(event.target.value))}>
+                                    <Form.Select onChange={(event) => setlbs(parseFloat(event.target.value))} defaultValue={lbs}>
                                         {lbsOptions.map((option, index) => (
-                                        <option key={index}>{option}</option>
+                                        <option key={index} className="wp-option">{option}</option>
                                         ))}
                                     </Form.Select>
-                                    <h5 className="mt-2 ms-2 fst-italic">lbs</h5>
+                                    <h5 className="mt-2 ms-2 fst-italic">{lbs === 1 ? "lb" : "lbs"}</h5>
                                 </div>
                                 <Button variant={"success"} className="wp-btn"
                                 onClick={() => addToCart(lbs,food.name)}>

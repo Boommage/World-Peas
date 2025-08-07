@@ -32,24 +32,27 @@ export default function CartCard({cartData}: CartCardProps) {
                         <span>${(calculatedCost === -1 ? initialCalcCost : calculatedCost)}</span>
                     </div>
                 </Card.Title>
-                <Card.Subtitle className="fs-5 wp-color">${cartData.food.cost} / lbs</Card.Subtitle>
+                <Card.Subtitle className="fs-5 wp-color">${cartData.food.cost} / lb</Card.Subtitle>
                 <Stack direction="horizontal" gap={1} className="mt-3 ms-2">
-                    {cartData.lbs} {(cartData.lbs === 1 ? "lb" : "lbs")}
-
+                    <div style={{ minWidth: "60px"}}>
+                        {cartData.lbs} {(cartData.lbs === 1 ? "lb" : "lbs")}
+                    </div>
                     <i className="fa-solid fa-pencil text-body-secondary ms-5 mt-1" style={{ cursor: "pointer" }}
                     onClick={() => setOpen(!open)}/>
-                    <Collapse in={open}>
-                        <Dropdown>
-                            <Dropdown.Toggle as={"span"} style={{ cursor: "pointer" }}/>
-                                
-                            <Dropdown.Menu>
-                                {lbsOptions.map((lbs, index) => (
-                                    <Dropdown.Item key={index} onClick={() => reCalculateCost(cartData, lbs)}>{lbs}</Dropdown.Item>
-                                ))}
-                                <Dropdown.Item onClick={() => removeItem(cartData)}>Remove</Dropdown.Item>
-                            </Dropdown.Menu>
+                        <Dropdown show={open} onToggle={setOpen}>
+                            <Collapse in={open}>
+                                <div>
+                                    <Dropdown.Toggle as={"span"} style={{ cursor: "pointer" }}/>    
+                                    <Dropdown.Menu>
+                                        {lbsOptions.map((lbs, index) => (
+                                            <Dropdown.Item key={index} onClick={() => reCalculateCost(cartData, lbs)}>{lbs}</Dropdown.Item>
+                                        ))}
+                                        <Dropdown.Item onClick={() => removeItem(cartData)}>Remove</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </div>
+                            </Collapse>
                         </Dropdown>     
-                    </Collapse>         
+                             
                 </Stack>
             </Card.Body>
         </Card>

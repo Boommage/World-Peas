@@ -16,14 +16,14 @@ export default function SummaryCard({cartContent}: SumCardProps) {
     return (
         <Card className="mt-5">
             <Card.Body>
-                <Card.Title>Order Summary</Card.Title>
+                <Card.Title className="fw-bold">Order Summary</Card.Title>
                 <Card.Subtitle className="mt-4">
                     <Stack gap={4}>
                         <div className="d-flex justify-content-between">
                             Subtotal <span>${subTotal}</span>
                         </div>
                         <div className="d-flex justify-content-between">
-                            Shipping <span>{"Free!"}</span>
+                            Shipping <span>{"Free"}</span>
                         </div>
                         <div className="d-flex justify-content-between">
                             Tax  <span>${tax}</span>

@@ -56,3 +56,12 @@
           changeLbs={changeLbs}
           removeItem={removeItem}
         />)}
+
+        <Offcanvas show placement="top" backdrop={false} scroll={true} className="custom-header">
+            <Container fluid className="mt-3">
+                <div className="d-flex justify-content-between m-3">
+                    <h2 className="world-peas-logo fw-medium m-4" >World Peas</h2>
+                    {headerButtons}
+                </div>
+            </Container>
+        </Offcanvas>
