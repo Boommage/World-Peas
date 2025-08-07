@@ -14,19 +14,19 @@ export const foodList: FoodItem[] = [
         "name": "Heirloom tomato", 
         "cost": 5.99,
         "desc": "Grown in San Juan Capistrano, CA",
-        "srcImg": "src/WorldPeas Imgs/ed-o-neil-AvvdZlhDowA-unsplash 1.png"
+        "srcImg": "WorldPeas Imgs/ed-o-neil-AvvdZlhDowA-unsplash 1.png"
     },
     {
         "name": "Organic ginger", 
         "cost": 12.99,
         "desc": "Grown in Huntington Beach, CA",
-        "srcImg": "src/WorldPeas Imgs/noonbrew-ziCb4_EKmak-unsplash.png"
+        "srcImg": "WorldPeas Imgs/noonbrew-ziCb4_EKmak-unsplash.png"
     },
     {
         "name": "Sweet onion", 
         "cost": 2.99,
         "desc": "Grown in Imperial Valley, CA",
-        "srcImg": "src/WorldPeas Imgs/k8-0_fkPHulv-M-unsplash 1.png"
+        "srcImg": "WorldPeas Imgs/k8-0_fkPHulv-M-unsplash 1.png"
     }
 ]
 
