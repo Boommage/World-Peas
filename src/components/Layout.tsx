@@ -1,7 +1,7 @@
 import type { ReactNode } from "react"
 import { Button, Col, Container, Offcanvas, Row, Stack } from "react-bootstrap"
 import "../utils/WP.css"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 interface LayoutProps {
     children: ReactNode
@@ -56,7 +56,7 @@ export default function Layout({children, cartSize}: LayoutProps) {
                 {children}
             </main>
             <div style={{ height: "250px" }}/>
-            {footer}
+            {useLocation().pathname === "/cart" ? "" : footer}
         </>
     )
 }
