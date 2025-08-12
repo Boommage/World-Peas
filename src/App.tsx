@@ -18,7 +18,6 @@ function App() {
     setCart(prev => [...prev, item]);
   }
 
-  //changes a CartItems lbs
   function changeLbs(target: CartItem, newLbs: number) {
     setCart(prev => 
       prev.map(item => 
