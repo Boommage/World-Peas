@@ -50,4 +50,5 @@ export type CartContextType = {
   setCartHelper: (item: CartItem) => void;
   changeLbs: (target: CartItem, newLbs: number) => void;
   removeItem: (target: CartItem) => void;
+  deleteCart: () => void
 };

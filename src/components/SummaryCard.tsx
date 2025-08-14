@@ -1,5 +1,7 @@
 import { Button, Card, Stack } from "react-bootstrap";
 import { round, type CartItem } from "../utils/Food";
+import { useAction } from "convex/react";
+import { api } from "../../convex/_generated/api";
 
 interface SumCardProps {
     cartContent: CartItem[]
@@ -12,6 +14,13 @@ export default function SummaryCard({cartContent}: SumCardProps) {
     ))
     const tax = round(subTotal * 0.0625)
     const total = round(subTotal+tax)
+
+    const createCheckoutSession = useAction(api.checkout.createCheckoutSession);
+
+    async function handleCheckout() {
+        const { url } = await createCheckoutSession({ total });
+        window.location.href = url!;
+    }
     
     return (
         <Card className="mt-5">
@@ -31,7 +40,7 @@ export default function SummaryCard({cartContent}: SumCardProps) {
                         <div className="fw-bold d-flex justify-content-between">
                             Total  <span>${total}</span>
                         </div>
-                        <Button variant="success" className="wp-btn">
+                        <Button variant="success" className="wp-btn" onClick={handleCheckout}>
                             <Stack direction="horizontal" className="fw-medium">
                                 Continue to payment
                                 <i className="fa-solid fa-arrow-right ms-auto"/>

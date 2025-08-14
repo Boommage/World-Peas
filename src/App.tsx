@@ -17,6 +17,10 @@ function App() {
   function setCartHelper(item: CartItem) {
     setCart(prev => [...prev, item]);
   }
+  
+  function deleteCart() {
+    setCart([] as CartItem[])
+  }
 
   function changeLbs(target: CartItem, newLbs: number) {
     setCart(prev => 
@@ -36,7 +40,7 @@ function App() {
 
   return (
       <Layout cartSize={cart.length}>
-        <Outlet context={{ cart, setCartHelper, changeLbs, removeItem }}/>
+        <Outlet context={{ cart, setCartHelper, changeLbs, removeItem, deleteCart }}/>
       </Layout>
   )
 }
