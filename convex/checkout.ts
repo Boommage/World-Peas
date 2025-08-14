@@ -2,6 +2,10 @@ import { action } from "./_generated/server";
 import { v } from "convex/values";
 import Stripe from "stripe";
 
+const origin = process.env.NODE_ENV !== "production"  
+  ? "https://djworldpeas.netlify.app"
+  : "http://localhost:5173";
+
 export const createCheckoutSession = action({
   args: {
     total: v.number(),
@@ -23,8 +27,8 @@ export const createCheckoutSession = action({
         },
       ],
       mode: "payment",
-      success_url: "http://localhost:5173/thanks",
-      cancel_url: "http://localhost:5173/cart",
+      success_url: origin+"/thanks",
+      cancel_url: origin+"/cart",
     });
     return { url: session.url };
   },
