@@ -2,9 +2,8 @@ import { action } from "./_generated/server";
 import { v } from "convex/values";
 import Stripe from "stripe";
 
-const origin = process.env.NODE_ENV !== "production"  
-  ? "https://djworldpeas.netlify.app"
-  : "http://localhost:5173";
+const origin = "https://djworldpeas.netlify.app"
+//const origin = "http://localhost:"+ //For testing
 
 export const createCheckoutSession = action({
   args: {

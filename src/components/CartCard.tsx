@@ -39,20 +39,19 @@ export default function CartCard({cartData}: CartCardProps) {
                     </div>
                     <i className="fa-solid fa-pencil text-body-secondary ms-5 mt-1" style={{ cursor: "pointer" }}
                     onClick={() => setOpen(!open)}/>
-                        <Dropdown show={open} onToggle={setOpen}>
-                            <Collapse in={open}>
-                                <div>
-                                    <Dropdown.Toggle as={"span"} style={{ cursor: "pointer" }}/>    
-                                    <Dropdown.Menu>
-                                        {lbsOptions.map((lbs, index) => (
-                                            <Dropdown.Item key={index} onClick={() => reCalculateCost(cartData, lbs)}>{lbs}</Dropdown.Item>
-                                        ))}
-                                        <Dropdown.Item onClick={() => removeItem(cartData)}>Remove</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </div>
-                            </Collapse>
-                        </Dropdown>     
-                             
+                    <Dropdown show={open} onToggle={setOpen}>
+                        <Collapse in={open}>
+                            <div>
+                                <Dropdown.Toggle as={"span"} style={{ cursor: "pointer" }}/>    
+                                <Dropdown.Menu>
+                                    {lbsOptions.map((lbs, index) => (
+                                        <Dropdown.Item key={index} onClick={() => reCalculateCost(cartData, lbs)}>{lbs}</Dropdown.Item>
+                                    ))}
+                                    <Dropdown.Item onClick={() => removeItem(cartData)}>Remove</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </div>
+                        </Collapse>
+                    </Dropdown>         
                 </Stack>
             </Card.Body>
         </Card>
