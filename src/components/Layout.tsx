@@ -45,9 +45,9 @@ export default function Layout({children, cartSize}: LayoutProps) {
             <p><span className="fst-italic">World Peas</span> originated from {" "} 
                 <a href="https://www.figma.com/">Figma.com</a>
                 <br/>
-                Programmed by <a href="https://github.com/Boommage">DJ Brown</a>
+                Programmed by <a href="https://djbrowndev.com">DJ Brown</a>
                 {" "}using <a href="https://react-bootstrap.netlify.app/">React Bootstrap</a>
-                <br/>Checkout the project on <a href="https://github.com/Boommage">Github</a>!
+                <br/>Checkout the project on <a href="https://github.com/Boommage/World-Peas">Github</a>!
             </p>
         </footer>
     )
